@@ -1,0 +1,17 @@
+# https://github.com/actions/labeler/tree/v5.0.0-alpha.1#create-githublabeleryml
+
+feature:
+  - head-branch:
+    - '^feat'
+
+revert:
+  - head-branch:
+    - '^revert'
+
+epic:
+  - head-branch:
+    - '^epic/[0-9]+/main$'
+
+'release:production':
+  - base-branch:
+    - '^main$'

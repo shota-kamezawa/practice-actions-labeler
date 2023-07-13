@@ -1,0 +1,28 @@
+name: Pull Request Labeler
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  labeler:
+    needs: []
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/labeler@v5.0.0-alpha.1
+        with:
+          configuration-path: .github/configurations/labeler.yml
