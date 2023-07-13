@@ -12,6 +12,10 @@ epic:
   - head-branch:
     - '^epic/[0-9]+/main$'
 
+epic-feature:
+  - head-branch:
+      - '^epic/[^/]+/(?!main$)'
+
 'release:production':
   - base-branch:
     - '^main$'
